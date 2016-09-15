@@ -1,4 +1,5 @@
 import type { IngredientType, NutritionFactType } from './types';
+import { combine as combineNutritionFacts } from './nutritionFacts';
 
 export * as ingredients from './ingredients';
 
@@ -10,16 +11,6 @@ export class Panini {
   }
 
   nutritionFacts(): NutritionFactType {
-    const result = {};
-
-    ['vegan', 'vegetarian', 'pescetarian', 'organic'].forEach((key) => {
-      result[key] = this.ingredients.every(ingredient => ingredient[key]);
-    });
-
-    ['fat', 'salt', 'calories'].forEach((key) => {
-      result[key] = this.ingredients.reduce((total, ingredient) => total + ingredient[key], 0);
-    });
-
-    return result;
+    return combineNutritionFacts(this.ingredients);
   }
 }
