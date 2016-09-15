@@ -1,6 +1,6 @@
 /* global suite, test */
 import { strictEqual } from 'assert';
-import { ingredients } from '../..';
+import { ingredients } from '../../..';
 
 const { salad } = ingredients;
 

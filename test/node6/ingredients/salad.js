@@ -2,7 +2,7 @@
 
 var _assert = require('assert');
 
-var _ = require('../..');
+var _ = require('../../..');
 
 /* global suite, test */
 const salad = _.ingredients.salad;
